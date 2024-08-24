@@ -53,6 +53,14 @@ public class UsersEndpoint {
         return response;
     }
 
+    public static Response getUserByID(String id){
+        return given()
+                .contentType(ContentType.JSON).accept(ContentType.JSON)
+                .pathParam("id", id)
+                .when()
+                .get(Routes.GET_BY_ID_URL);
+    }
+
 
     public static Response updateUser(String id, User payload){
         Response response = given()

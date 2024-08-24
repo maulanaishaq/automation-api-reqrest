@@ -88,6 +88,11 @@ public class UserTest {
         System.out.println(response.prettyPrint());
     }
 
+    @Test
+    public void getUserByIdTest(){
+        Response response = UsersEndpoint.getUserByID("23");
+        Assert.assertEquals(response.getStatusCode(), 404);
+    }
 
     @Test
     public void updateUserTest(){

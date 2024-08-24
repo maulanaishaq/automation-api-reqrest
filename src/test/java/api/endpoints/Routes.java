@@ -7,6 +7,8 @@ public class Routes {
     //CRUD USER
     public static String POST_URL = BASE_URL+"/api/users";
     public static String GET_URL = BASE_URL+"/api/users";
+
+    public static String GET_BY_ID_URL = BASE_URL+"/api/users/{id}";
     public static String PUT_URL = BASE_URL+"/api/users/{id}";
     public static String DELETE_URL = BASE_URL+ "/api/users/{id}";
 

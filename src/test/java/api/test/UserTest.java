@@ -95,6 +95,14 @@ public class UserTest {
     }
 
     @Test
+    public void getUserWithPaginationTest(){
+        Response response = UsersEndpoint.fetchUsersWithPagination(2);
+        Assert.assertEquals(response.getStatusCode(), 200);
+        response.then().body("page", equalTo(2));
+        response.prettyPrint();
+    }
+
+    @Test
     public void updateUserTest(){
         User user = new User();
         user.setName(faker.name().fullName());

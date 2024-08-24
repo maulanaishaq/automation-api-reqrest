@@ -61,6 +61,14 @@ public class UsersEndpoint {
                 .get(Routes.GET_BY_ID_URL);
     }
 
+    public static Response fetchUsersWithPagination(int pageId) {
+        return given()
+                .contentType(ContentType.JSON).accept(ContentType.JSON)
+                .pathParam("id", pageId)
+                .when()
+                .get(Routes.GET_URL_PAGINATION);
+    }
+
 
     public static Response updateUser(String id, User payload){
         Response response = given()

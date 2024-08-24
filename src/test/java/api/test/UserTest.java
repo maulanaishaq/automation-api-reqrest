@@ -34,6 +34,16 @@ public class UserTest {
         response.then().body("token", equalTo("QpwL5tke4Pnpja7X4"));
     }
 
+    @Test
+    public void registerUserFailedTest(){
+        User user = new User();
+        user.setEmail("sydney@fife");
+
+        Response response = UsersEndpoint.registerUser(user);
+        Assert.assertEquals(response.getStatusCode(), 400);
+        response.then().body("error", equalTo("Missing password"));
+    }
+
 
     @Test
     public void loginUserTest(){
@@ -45,6 +55,16 @@ public class UserTest {
         Assert.assertEquals(response.getStatusCode(), 200);
         response.then().body("token", equalTo("QpwL5tke4Pnpja7X4"));
 
+    }
+
+    @Test
+    public void loginUserFailedTest(){
+        User user = new User();
+        user.setEmail("peter@klaven");
+
+        Response response = UsersEndpoint.loginUser(user);
+        Assert.assertEquals(response.getStatusCode(), 400);
+        response.then().body("error", equalTo("Missing password"));
     }
 
     @Test
